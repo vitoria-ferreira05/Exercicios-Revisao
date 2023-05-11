@@ -13,82 +13,69 @@ public class Exercicio1 {
         //c. consultar o valor do volume de som e o canal selecionado.
 
         Scanner sc = new Scanner(System.in);
-
-        LinkedList<Integer> listaControle = new LinkedList<>();
+        int volume = 100;
+        int canal = 40;
 
         while (true) {
 
             System.out.println("Escolha uma opcao: ");
-            System.out.println("1. Escolha a potencia do volume desejado ");
+            System.out.println("1. Aumentar o volume");
             System.out.println("2. Diminuir o  volume");
-            System.out.println("3. Aumentar o volume");
-            System.out.println("4. Escolha o canal ");
-            System.out.println("5. Aumentar o canal");
-            System.out.println("6. Diminuir o canal");
-            System.out.println("7. Consultar volume e o canal selecionado");
-            System.out.println("8. Sair");
+            System.out.println("3. Aumentar o canal");
+            System.out.println("4. Diminuir o canal ");
+            System.out.println("5. Trocar de canal");
+            System.out.println("6. Consultar o valor do volume e do canal selecionado");
+            System.out.println("7. Sair");
 
             int opcao = sc.nextInt();
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Digite a potencia do volume desejado: ");
-                    int volume = sc.nextInt();
-                    listaControle.add(volume);
-                    System.out.println("Volume adicionado");
-                    break;
-                case 2:
-                    if (listaControle.isEmpty()) {
+                    if (volume >= 100){
                         System.out.println("O volume atual sera mantido");
                     } else {
-                        int diminuirVolume = listaControle.remove();
-                        diminuirVolume = diminuirVolume - 1;
-                        System.out.println("O volume atual e: " + diminuirVolume);
+                        int aumentarVolume = volume += 1;
+                        System.out.println("O volume atual e: " + volume);
+                    }
+                    break;
+                case 2:
+                    if (volume > 100){
+                        System.out.println("O volume atual sera mantido");
+                    } else {
+                        int diminuirVolume = volume -= 1;
+                        System.out.println("O volume atual e: " + volume);
                     }
                     break;
                 case 3:
-                    if (listaControle.isEmpty()) {
-                        System.out.println("O volume atual sera mantido");
+                    if (canal >= 40) {
+                        System.out.println("O canal atual sera mantido");
                     } else {
-                        int aumentarVolume = listaControle.remove();
-                        aumentarVolume = aumentarVolume + 1;
-                        System.out.println("O volume atual e: " + aumentarVolume);
+                        int aumentarCanal = canal + 1;
+                        System.out.println("O canal foi para: " + aumentarCanal);
                     }
                     break;
                 case 4:
-                    System.out.println("Digite o numero do canal: ");
-                    int canal = sc.nextInt();
-                    listaControle.add(canal);
-                    System.out.println("Canal adicionado");
-                    break;
-                case 5:
-                    if (listaControle.isEmpty()) {
+                    if (canal > 40) {
                         System.out.println("O canal atual sera mantido");
                     } else {
-                        int aumentarCanal = listaControle.remove();
-                        aumentarCanal = aumentarCanal + 1;
-                        System.out.println("O volume atual e: " + aumentarCanal);
+                        int diminuirCanal = canal - 1;
+                        System.out.println("O canal foi para: " + diminuirCanal);
+                    }
+                    break;
+                case 5:
+                    System.out.println("Digite o numero do canal: ");
+                    int auxCanal = sc.nextInt();
+                    if (auxCanal > 40 || auxCanal < 1){
+                        System.out.println("Os canais existentes na TV é de 1 a 40");
+                    } else {
+                        canal = auxCanal;
+                        System.out.println("O canal atual e: " + canal);
                     }
                     break;
                 case 6:
-                    if (listaControle.isEmpty()) {
-                        System.out.println("O canal atual sera mantido");
-                    } else {
-                        int diminuirCanal = listaControle.remove();
-                        diminuirCanal = diminuirCanal - 1;
-                        System.out.println("O volume atual e: " + diminuirCanal);
-                    }
-                    break;
+                    System.out.println("Canal atual: " + canal);
+                    System.out.println("Volume atual: " + volume);
                 case 7:
-                    if (listaControle.isEmpty()){
-                        System.out.println("Ainda nao foi adicionado o volume e o canal");
-                    }else {
-                        for (int dadosvolCan : listaControle){
-                            System.out.println("1° valor: volume / 2° valor: canal " +  dadosvolCan);
-                        }
-                    }
-                    break;
-                case 8:
                     System.out.println("O programa foi encerrado.");
                     System.exit(0);
                     break;

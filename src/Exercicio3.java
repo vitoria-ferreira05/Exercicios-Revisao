@@ -34,6 +34,7 @@ public class Exercicio3 {
     }
 
     public static double informandoNotaAluno(double nota) {
+
         return nota;
     }
 }

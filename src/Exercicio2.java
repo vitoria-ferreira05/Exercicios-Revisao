@@ -46,6 +46,7 @@ public class Exercicio2 {
     }
 
     public static Double dizerInformacao(double peso, double altura) {
+
         return dizerInformacao(peso, altura);
     }
 
